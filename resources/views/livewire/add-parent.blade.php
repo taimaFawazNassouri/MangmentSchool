@@ -6,7 +6,7 @@
         </div>
     @endif
     @if ($catchError)
-       <div class="alert alert-danger" id="success-danger">
+        <div class="alert alert-danger" id="success-danger">
             <button type="button" class="close" data-dismiss="alert">x</button>
             {{ $catchError }}
         </div>
@@ -30,20 +30,24 @@
         </div>
     </div>
 
-    @include('livewire.Father_Form')
+    @if ($currentStep == 1)
+        @include('livewire.Father_Form')
+    @endif
 
-    @include('livewire.Mother_Form')
+    @if ($currentStep == 2)
+        @include('livewire.Mother_Form')
+    @endif
 
-    <div class="row setup-content" @if($currentStep != 3) style="display: none" @endif id="step-3">
-        <div class="col-xs-12">
-            <div class="col-md-12">
-                <h3 style="font-family: 'Cairo', sans-serif;">هل انت متاكد من حفظ البيانات ؟</h3><br>
-                <button class="btn btn-danger btn-sm nextBtn btn-lg pull-right" type="button"
-                    wire:click="back(2)">{{ trans('Parent_trans.Back') }}</button>
-                <button class="btn btn-success btn-sm btn-lg pull-right" wire:click="submitForm"
-                    type="button">{{ trans('Parent_trans.Finish') }}</button>
+    @if ($currentStep == 3)
+        <div class="row setup-content" id="step-3">
+            <div class="col-xs-12">
+                <div class="col-md-12">
+                    <h3 style="font-family: 'Cairo', sans-serif;">هل انت متاكد من حفظ البيانات ؟</h3><br>
+                    <button class="btn btn-danger btn-sm nextBtn btn-lg pull-right" type="button" wire:click="back(2)">{{ trans('Parent_trans.Back') }}</button>
+                    <button class="btn btn-success btn-sm btn-lg pull-right" wire:click="submitForm" type="button">{{ trans('Parent_trans.Finish') }}</button>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+    @endif
 
+</div>

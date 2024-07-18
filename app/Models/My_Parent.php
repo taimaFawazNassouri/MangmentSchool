@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -11,11 +10,9 @@ class My_Parent extends User
 {
     use HasFactory, HasTranslations;
 
-    public $translatable = ['Name_Father','Job_Father','Name_Mother','Job_Mother'];
-    
     protected $table = 'my__parents';
 
-    protected $fillable=[
+    protected $fillable = [
         'email',
         'email_verified_at',
         'password',
@@ -29,7 +26,7 @@ class My_Parent extends User
         'Nationality_Father_id',
         'Blood_Type_Father_id',
         'Religion_Father_id',
-        'Address_Father','Name_Mother',
+        'Address_Father', 'Name_Mother',
         'Name_Mother_en',
         'Job_Mother',
         'Job_Mother_en',
@@ -41,6 +38,15 @@ class My_Parent extends User
         'Religion_Mother_id',
         'Address_Mother',
     ];
-    
-    
+
+
+    /*
+     * SPATIE TRANSLATABLE 
+     */
+    public $translatable = [
+        'Name_Father',
+        'Job_Father',
+        'Name_Mother',
+        'Job_Mother',
+    ];
 }
