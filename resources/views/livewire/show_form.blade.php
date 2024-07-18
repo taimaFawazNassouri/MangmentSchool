@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('css')
-
+@livewireStyles
 @section('title')
     {{trans('main_trans.Add_Parent')}}
 @stop

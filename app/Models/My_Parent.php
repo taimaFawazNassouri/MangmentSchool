@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class My_Parent extends Authenticatable
+class My_Parent extends User
 {
     use HasFactory, HasTranslations;
 
